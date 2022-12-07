@@ -55,5 +55,3 @@ SELECT surname, AVG(score) as avgsc
 FROM students
 JOIN exams ON  id_student=rk_students
 GROUP BY surname
-
-5)
