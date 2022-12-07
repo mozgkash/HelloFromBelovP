@@ -1,0 +1,59 @@
+SELECT * FROM courses, students, exams
+WHERE id_course=rk_course AND id_student=rk_students AND id_course=5
+ORDER BY start_year, surname
+
+
+
+SELECT * FROM courses JOIN exams ON id_course=rk_course
+
+SELECT * FROM exams LEFT JOIN courses ON id_course=rk_course
+
+SELECT * FROM courses RIGHT JOIN exams ON id_course=rk_course
+
+
+
+SELECT * FROM courses 
+INNER JOIN exams ON id_course=rk_course 
+INNER JOIN students ON id_student=rk_students
+ORDER BY title;
+
+
+
+SELECT title, AVG(score) AS AVGSCORE
+FROM courses
+JOIN exams 
+ON id_course=rk_course
+GROUP BY title 
+
+SELECT title, score, COUNT(score) AS COUNTSCORE 
+FROM courses
+JOIN exams 
+ON id_course=rk_course
+GROUP BY title, score
+
+
+1)
+SELECT start_year,
+COUNT(start_year) AS COUNTyear
+FROM students
+GROUP BY start_year
+
+2)
+SELECT start_year, score, AVG(score) AS AVGSCORE
+FROM students
+JOIN exams 
+GROUP BY start_year
+
+3)
+SELECT title, AVG(score) as avgsc
+FROM courses
+JOIN exams ON  id_course=rk_course
+GROUP BY title
+
+4)
+SELECT surname, AVG(score) as avgsc
+FROM students
+JOIN exams ON  id_student=rk_students
+GROUP BY surname
+
+5)
